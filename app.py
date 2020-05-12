@@ -29,10 +29,12 @@ app.title = 'Matt Kirby'
 server = app.server
 
 navbar = dbc.NavbarSimple(
-    brand='MATT KIRBY',
-    brand_href='/',
-    children=[],
-    sticky='top',
+    brand = 'MATT KIRBY',
+    brand_href = '/',
+    children = [],
+    color = "primary",
+    sticky = 'top',
+    dark = True,
 )
 
 
