@@ -30,7 +30,7 @@ resume_content = [
         ),
         dbc.Button(html.A(
         'Download',
-        download = 'Matts Resume.pdf', href='/assets/matts resume.pdf',
+        download = 'Matt Kirbys Resume.pdf', href='/assets/matt kirby resume.pdf',
         style = dict(color = 'white')
         ), color = "primary")
     ])]
