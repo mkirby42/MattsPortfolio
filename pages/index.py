@@ -66,7 +66,7 @@ mushroom_content = [
         ),
         dbc.Button(html.A(
             "See More",
-            href='http://ec2-18-189-7-104.us-east-2.compute.amazonaws.com',
+            href='https://mushroom-dash-app.herokuapp.com/',
             style = dict(color = 'white')
         ), color = "primary")
     ])]
