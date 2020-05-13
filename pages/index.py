@@ -59,9 +59,9 @@ mushroom_content = [
     dbc.CardHeader("Web App"),
     dbc.CardImg(src = "/assets/mushroom.jpg", top = True),
     dbc.CardBody([
-        html.H5("Classifing Mushrooms", className = "card-title"),
+        html.H5("Classifying Mushrooms", className = "card-title"),
         html.P(
-            "Using tree-based models to classify mushrooms as edible or poisonious",
+            "Using tree-based models to classify mushrooms as edible or poisonous",
             className = "card-text",
         ),
         dbc.Button(html.A(
@@ -77,7 +77,7 @@ tanzania_content = [
     dbc.CardBody([
         html.H5("Tanzanian Water Pumps", className = "card-title"),
         html.P(
-            "Utilizing machine learning for pedictive maintenance",
+            "Utilizing machine learning for predictive maintenance",
             className = "card-text",
         ),
         dbc.Button(html.A(
