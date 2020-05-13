@@ -20,7 +20,7 @@ meta_tags=[
 ]
 
 app = dash.Dash(__name__,
-    external_stylesheets=external_stylesheets,
+    external_stylesheets = external_stylesheets,
     meta_tags=meta_tags
     )
 
@@ -70,8 +70,6 @@ app.layout = html.Div([
 def display_page(pathname):
     if pathname == '/':
         return index.layout
-    #elif pathname == '/first_steps':
-        #return first_steps.layout
     else:
         return dcc.Markdown('## Page not found')
 
