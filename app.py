@@ -1,4 +1,6 @@
-# Imports from 3rd party libraries
+import boto3
+import datetime
+import json
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -7,6 +9,8 @@ from dash.dependencies import Input, Output
 
 # Imports from this application
 from pages import index
+
+kinesis = boto3.client("kinesis")
 
 external_stylesheets = [
     dbc.themes.LUX,
@@ -69,6 +73,11 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/':
+	streamMsg = {"Timestamp": datetime.datetime.utcnow()}
+	kinesis.put_record(
+		StreamName = "PortfolioLogs",
+		Data = json.dumps(streamMsg, default = str),
+		PartitionKey = "partitionkey")
         return index.layout
     else:
         return dcc.Markdown('## Page not found')
