@@ -10,7 +10,7 @@ from dash.dependencies import Input, Output
 # Imports from this application
 from pages import index
 
-kinesis = boto3.client("kinesis")
+#kinesis = boto3.client("kinesis")
 
 external_stylesheets = [
     dbc.themes.LUX,
@@ -35,7 +35,18 @@ server = app.server
 navbar = dbc.NavbarSimple(
     brand = 'MATT KIRBY',
     brand_href = '/',
-    children = [],
+    children = [
+        dbc.Col(
+            html.P(
+                [
+                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:mkirby3@angelo.edu', style = dict(color = "white")),
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/mkirby42', style = dict(color = "white")),
+                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/matt-kirby-ml/', style = dict(color = "white")),
+                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/matt42kirby', style = dict(color = "white")),
+                ],
+                className='lead'
+            )
+        )],
     color = "primary",
     sticky = 'top',
     dark = True,
@@ -73,11 +84,11 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/':
-	streamMsg = {"Timestamp": datetime.datetime.utcnow()}
-	kinesis.put_record(
-		StreamName = "PortfolioLogs",
-		Data = json.dumps(streamMsg, default = str),
-		PartitionKey = "partitionkey")
+        #streamMsg = {"Timestamp": datetime.datetime.utcnow()}
+        #kinesis.put_record(
+            #StreamName = "PortfolioLogs",
+            #Data = json.dumps(streamMsg, default = str),
+            #PartitionKey = "partitionkey")
         return index.layout
     else:
         return dcc.Markdown('## Page not found')
